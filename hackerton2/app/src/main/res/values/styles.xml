@@ -1,0 +1,7 @@
+<resources>
+    <!-- 부모 테마에 맞게 변경하세요. -->
+    <style name="AppTheme.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 상태 표시줄을 숨기는 속성 -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

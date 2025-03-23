@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 좌측 40% 경계를 위한 Guideline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg2"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/guideline_left40" />
+
+    <!-- 진행 상태 텍스트 (가장 위쪽에 배치) -->
+    <TextView
+        android:id="@+id/process_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="진행 상태"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 전체 콘텐츠 영역: 좌측 40%는 단계 이미지, 우측 60%는 재료 버튼 GridLayout -->
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        app:layout_constraintTop_toBottomOf="@id/process_status"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- 왼쪽 영역 (40%): 단계별 이미지 표시 -->
+        <LinearLayout
+            android:id="@+id/step_image_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!-- 현재 단계에 해당하는 음료 이미지 -->
+            <ImageView
+                android:id="@+id/current_drink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/im11"
+                android:contentDescription="현재 음료 이미지"/>
+        </LinearLayout>
+
+        <!-- 오른쪽 영역 (60%): 재료 버튼들을 2열×5행 GridLayout으로 배치 -->
+        <GridLayout
+            android:id="@+id/grid_ingredients"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:columnCount="2"
+            android:rowCount="5"
+            android:alignmentMode="alignMargins"
+            android:rowOrderPreserved="false"
+            android:useDefaultMargins="true">
+            <!-- 10개 버튼: Java에서 동적으로 연결할 수 있도록 id 정의 -->
+            <Button
+                android:id="@+id/ingredient1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="물" />
+            <Button
+                android:id="@+id/ingredient2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="우유" />
+            <Button
+                android:id="@+id/ingredient3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="샷 담기" />
+            <Button
+                android:id="@+id/ingredient4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="초코" />
+            <Button
+                android:id="@+id/ingredient5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="원두 추출" />
+            <Button
+                android:id="@+id/ingredient6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="얼음" />
+            <Button
+                android:id="@+id/ingredient7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="바닐라" />
+            <Button
+                android:id="@+id/ingredient8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="바닐라 파우더" />
+            <Button
+                android:id="@+id/ingredient9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="시나몬" />
+            <Button
+                android:id="@+id/ingredient10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="카라멜" />
+        </GridLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
